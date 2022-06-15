@@ -1,2 +1,0 @@
-body,html{height:100vh;margin:0;padding:0}#root{height:100%}.password{background-color:#000;color:#000}.password:hover{background-color:#fff}main{align-items:center;height:100%;justify-content:space-between}.bottom,form,main{display:flex;flex-direction:column}.bottom{align-items:center}p{word-wrap:break-word}.help{display:none}#showHelp:checked~.help{display:inline;display:initial}
-/*# sourceMappingURL=main.6fd4781e.css.map*/
