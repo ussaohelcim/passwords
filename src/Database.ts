@@ -1,10 +1,9 @@
-import { IAccount } from "./PasswordList"
+import { IAccount } from "./NewAccount"
 
 export class Database{
 	passwordList: IAccount[] = []
 	import(acc:IAccount[]){
 		acc.forEach((a)=>{
-			console.log(a)
 			this.passwordList.push(a)
 		})
 	}

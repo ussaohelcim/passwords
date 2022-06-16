@@ -1,11 +1,16 @@
-import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
 
-import { ExportAccounts,ImportAccounts, PasswordList, NewAccount, FooterComponent, HelpPage, HeaderComponent } from './PasswordList';
+import { Database } from './Database';
+import { ExportAccounts } from './ExportAccounts';
+import { FooterComponent } from './Footer';
+import { HeaderComponent } from './Header';
+import { HelpPage } from './HelpPage';
+import { ImportAccounts } from './ImportAccounts';
+import { NewAccount } from './NewAccount';
+import { PasswordList } from './PasswordList';
 
 export const refreshEvent = "refresh-list"
-// window.addEventListener('')
+export const db = new Database()
 
 function App() {
   return (
