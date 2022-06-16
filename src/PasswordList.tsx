@@ -8,6 +8,17 @@ export class PasswordList extends React.Component{
 	refresh(){
 		this.setState({})
 	}
+	removeFromList(input:any){
+		let e = input.target as HTMLElement
+		let id = e.parentElement!.parentElement!.id
+
+		if(confirm("Do you really want to remove this account?"))
+		{
+			db.remove(Number(id))
+
+			this.refresh()
+		}
+	}
 	render(): React.ReactNode {
 		window.removeEventListener(refreshEvent,()=>{})
 		
@@ -16,7 +27,7 @@ export class PasswordList extends React.Component{
 		},{once:true})
 
 		const r = db.getAll().map((acc,i)=>{
-			return <tr key={i}>
+			return <tr key={i} id={`${i}`}>
 				<th >
 					{acc.service}
 				</th>
@@ -27,10 +38,12 @@ export class PasswordList extends React.Component{
 					{acc.password}
 				</th>
 				<th>
-					<input type="button" disabled value="delete" />
+					<input type="button"  value="delete" onClick={this.removeFromList.bind(this)} />
 				</th>
 			</tr>
 		}) 
+
+		
 
 		return (
 			<div>
@@ -42,7 +55,7 @@ export class PasswordList extends React.Component{
 							<th>Username</th>
 							<th>Password</th>
 							<th>
-								<input type="button" value="refresh" onClick={this.refresh.bind(this)} />
+								x
 							</th>
 						</tr>
 					</thead>

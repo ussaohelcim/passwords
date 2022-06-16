@@ -26,6 +26,9 @@ export class Database{
 			this.passwordList = json
 		}
 	}
+	remove(index:number){
+		this.passwordList.splice(index,1)
+	}
 }
 
 export {}
