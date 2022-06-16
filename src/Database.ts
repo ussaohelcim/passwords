@@ -1,4 +1,4 @@
-import { IAccount } from "./NewAccount"
+import { IAccount } from "./components/NewAccount"
 
 export class Database{
 	passwordList: IAccount[] = []

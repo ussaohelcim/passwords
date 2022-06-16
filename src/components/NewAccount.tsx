@@ -1,5 +1,5 @@
 import React from 'react';
-import {db, refreshEvent } from './App';
+import {db, refreshEvent } from '../App';
 
 export interface IAccount{
 	username:string

@@ -1,13 +1,13 @@
-import './App.css';
+import './styles/App.css';
 
 import { Database } from './Database';
-import { ExportAccounts } from './ExportAccounts';
-import { FooterComponent } from './Footer';
-import { HeaderComponent } from './Header';
-import { HelpPage } from './HelpPage';
-import { ImportAccounts } from './ImportAccounts';
-import { NewAccount } from './NewAccount';
-import { PasswordList } from './PasswordList';
+import { ExportAccounts } from './components/ExportAccounts';
+import { FooterComponent } from './components/Footer';
+import { HeaderComponent } from './components/Header';
+import { HelpPage } from './components/HelpPage';
+import { ImportAccounts } from './components/ImportAccounts';
+import { NewAccount } from './components/NewAccount';
+import { PasswordList } from './components/PasswordList';
 
 export const refreshEvent = "refresh-list"
 export const db = new Database()
