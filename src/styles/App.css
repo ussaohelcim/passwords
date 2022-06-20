@@ -1,5 +1,17 @@
+:root{
+  --btn-color: #a52a2a;
+  --btn-color-hover: #6e1f1f;
+
+  --btn-text-color: rgb(255, 255, 255);
+
+  --bg-color-r: 255;
+  --bg-color-g: 255;
+  --bg-color-b: 255;
+
+  --border-opacity: 0.89;
+}
 body, html{
-  margin: 0;
+  margin: 0 10pt;
   padding: 0;
   height: 100vh;
 }
@@ -8,10 +20,10 @@ body, html{
 }
 .password{
   color: black;
-  background-color: black;
+  -webkit-text-security: disc;
 }
 .password:hover{
-  background-color: white;
+  -webkit-text-security: none;
 }
 main{
   display: flex;
@@ -23,21 +35,97 @@ main{
 form{
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.flexBox{
+  display: flex;
+  flex-direction: column;
 }
 .bottom{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-p{
-  word-wrap: break-word;
-}
-
-
-
 .help{
   display: none;
 }
 #showHelp:checked ~ .help{
   display: unset;
+}
+main{
+  background-color: rgb(var(--bg-color-r),var(--bg-color-g),var(--bg-color-b))  
+}
+.border{
+  text-align: center;
+  width: 100%;
+  background-color: rgb( 
+    calc(var(--bg-color-r) * var(--border-opacity)), 
+    calc(var(--bg-color-g) * var(--border-opacity)), 
+    calc(var(--bg-color-b) * var(--border-opacity)) 
+  );
+}
+input[type=button], input[type=submit]{
+  background-color: var(--btn-color);
+  border: none;
+  height: 30pt;
+  color: var(--btn-text-color);
+  
+  text-transform: capitalize;
+}
+input[type=button]:hover, input[type=submit]:hover{
+  background-color: var(--btn-color-hover);
+  cursor: pointer;
+}
+input{
+  padding: 3pt;
+  margin: 2pt 0;
+}
+@keyframes accountAddedToList {
+  0%{
+    background-color: red;
+  }
+  100%{
+    background-color: lavender;
+  }
+}
+tr{
+  animation-name: accountAddedToList;
+  animation-duration: 1s;
+  background-color: rgb(220, 180, 180);
+}
+th{
+  font-weight: normal;
+}
+th{
+  overflow-wrap: anywhere;
+}
+thead th{
+  overflow-wrap: unset;
+}
+.newAccountForm{
+  display: flex;
+  flex-direction: row;
+}
+@keyframes showNotification {
+  0%{
+    background-color: chartreuse;
+  }
+  100%{
+    display: none;
+  }
+}
+.notification {
+  animation-name: showNotification;
+  animation-duration: 3s;
+  position: fixed;
+  background-color: chartreuse;
+  min-width: 40%;
+  text-align: center;
+}
+@media only screen and (max-width:640px) {
+    
+}
+.tooltip{
+  position: absolute;
+  display: none;
 }

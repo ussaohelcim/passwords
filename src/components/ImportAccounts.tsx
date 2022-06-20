@@ -1,28 +1,34 @@
 import React from 'react';
 import {db, refreshEvent } from '../App';
+import { Tooltip } from './Tooltip';
 
 export class ImportAccounts extends React.Component{
 	render(): React.ReactNode {
-		return <form onSubmit={this.import.bind(this)}>
-			<input type="text" placeholder='import string' name="import" id="" />
-			<input type="submit" value="import" />
-		</form>
+		return <div className='border'>
+			<p>Password import:</p>
+			<form onSubmit={this.import.bind(this)}>
+				<input type="text" placeholder='Import string' name="import" id="" />
+				{/* <input type="text" placeholder='Master password' name="masterkey" id="" /> */}
+				<Tooltip text='Import an account list from a base64 string'></Tooltip>
+				<input type="submit" value="import" />
+			</form>
+		</div> 
 	}
 
 	import(input:any){
 		input.preventDefault()
 
-		let r = input.target.import.value
+		const accountList = input.target.import.value
 
-		if(r)
+		if(accountList)
 		{
-			let json = JSON.parse(atob(r)) 
+			const json = JSON.parse(atob(accountList)) 
+
 			window.dispatchEvent(new Event(refreshEvent))
-			console.log(json)
+
 			db.import(json)
 		}
 		
 		input.target.reset();
-
 	}
 }

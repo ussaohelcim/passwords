@@ -7,10 +7,13 @@ export class PasswordList extends React.Component{
 		this.setState({})
 	}
 	removeFromList(input:any){
-		let e = input.target as HTMLElement
-		let id = e.parentElement!.parentElement!.id
+		const e = input.target 
+		const tr = e.parentElement!.parentElement as HTMLTableRowElement
+		const service = tr.querySelector("#service")?.innerHTML 
+		const username = tr.querySelector("#username")?.innerHTML 
+		const id = tr.id
 
-		if(confirm("Do you really want to remove this account?"))
+		if(confirm(`Do you really want to remove ${service}:${username} ?`))
 		{
 			db.remove(Number(id))
 
@@ -25,13 +28,9 @@ export class PasswordList extends React.Component{
 		},{once:true})
 
 		const r = db.getAll().map((acc,i)=>{
-			return <tr key={i} id={`${i}`}>
-				<th >
-					{acc.service}
-				</th>
-				<th >
-					{acc.username}
-				</th>
+			return <tr key={i} id={`${i}`} >
+				<th id='service'>{acc.service}</th>
+				<th id='username'>{acc.username}</th>
 				<th className='password'>
 					{acc.password}
 				</th>
@@ -41,25 +40,19 @@ export class PasswordList extends React.Component{
 			</tr>
 		}) 
 
-		
-
 		return (
-			<div>
+			<div className="border flexBox">
 				<p>Password list:</p>
-				<table>
+				<table >
 					<thead>
 						<tr>
 							<th>Service</th>
 							<th>Username</th>
 							<th>Password</th>
-							<th>
-								x
-							</th>
+							<th>x</th>
 						</tr>
 					</thead>
-					<tbody>
-						{r}
-					</tbody>
+					<tbody>{r}</tbody>
 				</table>
 			</div>
 		)
