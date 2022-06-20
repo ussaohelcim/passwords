@@ -9,6 +9,6 @@ Yet another password manager.
 - Export accounts list 
 - Import accounts list
 
-# Usage
+# Usage example
 
-https://user-images.githubusercontent.com/57050328/173955537-9bea925c-c293-4542-9d46-19397a56cc3b.mp4
+https://user-images.githubusercontent.com/57050328/174677416-e793b314-868a-4bba-871e-69844835cd4e.mp4
